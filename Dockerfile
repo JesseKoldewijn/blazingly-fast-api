@@ -9,6 +9,9 @@ WORKDIR /usr/src/myapp
 ARG PORT=8000
 ENV PORT=${PORT}
 
+ARG APP_NAME=rusty-api
+ENV APP_NAME=${APP_NAME}
+
 # Copy source code to the container
 COPY . ./
 
@@ -28,4 +31,4 @@ RUN rm -rf ./src
 EXPOSE ${PORT}
 
 # Start the server
-CMD ["./target/release/jkinsight-api"]
+CMD ["./target/release/${APP_NAME}"]
